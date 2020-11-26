@@ -43,6 +43,15 @@ jobs:
           name: list
           command: ls -a -l
       - run:
+          name: change directory
+          command: cd Transaction Simulator
+      - run:
+          name: path
+          command: pwd
+      - run: 
+          name: list inside
+          command: ls -a -l
+      - run:
           name: Install general dependencies
           command: *defaults_Dependencies
       - run:
