@@ -40,6 +40,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: find
+          command: find . -name "package.json"
+      - run:
           name: Install general dependencies
           command: *defaults_Dependencies
       - run:
