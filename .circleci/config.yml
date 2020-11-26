@@ -112,13 +112,7 @@ workflows:
       - build:
           requires:
             - setup
-          branches:
-            ignore:
-              - /.*/
       - scan-license:
           requires:
             - setup
             - build
-          branches:
-            ignore:
-              - /.*/
