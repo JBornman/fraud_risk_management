@@ -71,10 +71,10 @@ jobs:
           name: Build Docker $CIRCLE_TAG image
           command: |
             echo "Building Docker image: $CIRCLE_TAG"
-            docker build -t $DOCKER_ORG/$CIRCLE_PROJECT_REPONAME:$CIRCLE_TAG .
+            docker build -t $CIRCLE_PROJECT_REPONAME:$CIRCLE_TAG .
       - run:
           name: Save docker image to workspace
-          command: docker save -o /tmp/docker-image.tar $DOCKER_ORG/$CIRCLE_PROJECT_REPONAME:$CIRCLE_TAG
+          command: docker save -o /tmp/docker-image.tar $CIRCLE_PROJECT_REPONAME:$CIRCLE_TAG
       - persist_to_workspace:
           root: /tmp
           paths:
@@ -92,7 +92,7 @@ jobs:
           <<: *defaults_license_scanner
       - run:
           name: Run the license-scanner
-          command: cd /tmp/license-scanner && mode=docker dockerImages=$DOCKER_ORG/$CIRCLE_PROJECT_REPONAME:$CIRCLE_TAG make run
+          command: cd /tmp/license-scanner && mode=docker dockerImages=$CIRCLE_PROJECT_REPONAME:$CIRCLE_TAG make run
       - store_artifacts:
           path: /tmp/license-scanner/results
           # prefix: licenses
