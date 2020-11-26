@@ -26,7 +26,7 @@ defaults_license_scanner: &defaults_license_scanner
 
 executors:
   default-docker:
-    working_directory: /home/circleci/project/Transaction Simulator
+    working_directory: /home/circleci/project/transaction_simulator
     docker:
       - image: node:12.16.1-alpine
 
@@ -39,18 +39,6 @@ jobs:
     executor: default-docker
     steps:
       - checkout
-      - run: 
-          name: list
-          command: ls -a -l
-      - run:
-          name: change directory
-          command: cd Transaction\ Simulator/
-      - run:
-          name: path
-          command: pwd
-      - run: 
-          name: list inside
-          command: ls -a -l
       - run:
           name: Install general dependencies
           command: *defaults_Dependencies
