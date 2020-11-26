@@ -112,7 +112,6 @@ workflows:
               ignore:
                 - /feature*/
                 - /bugfix*/
-
       - build:
           # context: org-global
           requires:
@@ -123,7 +122,6 @@ workflows:
             branches:
               ignore:
                 - /.*/
-
       - scan-license:
           # context: org-global
           requires:
