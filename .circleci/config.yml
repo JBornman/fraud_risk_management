@@ -39,6 +39,9 @@ jobs:
     executor: default-docker
     steps:
       - checkout
+      - run: 
+          name: list
+          command: ls -a -l
       - run:
           name: Install general dependencies
           command: *defaults_Dependencies
