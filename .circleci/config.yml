@@ -6,23 +6,21 @@ version: 2.1
 orbs:
   node: circleci/node@3.0.0
 
-
 # Defaults we will need
 defaults_Dependencies: &defaults_Dependencies |
-    apk --no-cache add git
-    apk --no-cache add ca-certificates
-    apk --no-cache add curl
-    apk --no-cache add openssh-client
-    apk add --no-cache -t build-dependencies make gcc g++ python libtool autoconf automake
-    npm config set unsafe-perm true
-    npm install -g node-gyp
+  apk --no-cache add git
+  apk --no-cache add ca-certificates
+  apk --no-cache add curl
+  apk --no-cache add openssh-client
+  apk add --no-cache -t build-dependencies make gcc g++ python libtool autoconf automake
+  npm config set unsafe-perm true
+  npm install -g node-gyp
 
 defaults_license_scanner: &defaults_license_scanner
   name: Install and set up license-scanner
   command: |
     git clone https://github.com/mojaloop/license-scanner /tmp/license-scanner
     cd /tmp/license-scanner && make build default-files set-up
-
 
 executors:
   default-docker:
