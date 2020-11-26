@@ -44,7 +44,7 @@ jobs:
           command: pwd
       - run:
           name: find
-          command: find . -name "package.json"
+          command: find "$(cd ..; pwd)" -name "package.json"
       - run:
           name: Install general dependencies
           command: *defaults_Dependencies
