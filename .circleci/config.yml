@@ -52,6 +52,9 @@ jobs:
           name: Access npm folder as root
           command: cd transaction_simulator &&  cd $(npm root -g)/npm
       - run:
+          name: NPM install
+          command: cd transaction_simulator && npm i
+      - run:
           name: Update NPM install
           command: cd transaction_simulator && npm ci
       - run:
