@@ -95,7 +95,7 @@ workflows:
   build_and_test:
     jobs:
       - setup:
-          context: org-global
+          # context: org-global
           filters:
             tags:
               only: /.*/
@@ -105,7 +105,7 @@ workflows:
                 - /bugfix*/
 
       - build:
-          context: org-global
+          # context: org-global
           requires:
             - setup
           filters:
@@ -116,7 +116,7 @@ workflows:
                 - /.*/
 
       - scan-license:
-          context: org-global
+          # context: org-global
           requires:
             - build
           filters:
