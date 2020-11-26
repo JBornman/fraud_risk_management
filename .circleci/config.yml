@@ -44,7 +44,7 @@ jobs:
           command: ls -a -l
       - run:
           name: change directory
-          command: cd Transaction Simulator
+          command: cd Transaction\ Simulator/
       - run:
           name: path
           command: pwd
