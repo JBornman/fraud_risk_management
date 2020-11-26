@@ -64,7 +64,6 @@ jobs:
           key: dependency-cache-{{ checksum "transaction_simulator/package.json" }}
           paths:
             - node_modules
-
   build:
     executor: default-machine
     steps:
@@ -81,7 +80,6 @@ jobs:
           root: /tmp
           paths:
             - ./docker-image.tar
-
   scan-license:
     executor: default-machine
     steps:
@@ -104,7 +102,6 @@ workflows:
   build_and_test:
     jobs:
       - setup:
-          # context: org-global
           filters:
             tags:
               only: /.*/
@@ -113,7 +110,6 @@ workflows:
                 - /feature*/
                 - /bugfix*/
       - build:
-          # context: org-global
           requires:
             - setup
           filters:
@@ -123,7 +119,6 @@ workflows:
               ignore:
                 - /.*/
       - scan-license:
-          # context: org-global
           requires:
             - build
           filters:
