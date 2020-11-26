@@ -26,7 +26,7 @@ defaults_license_scanner: &defaults_license_scanner
 
 executors:
   default-docker:
-    working_directory: /home/circleci/project/transaction_simulator
+    working_directory: /home/circleci/project
     docker:
       - image: node:12.16.1-alpine
 
@@ -50,13 +50,13 @@ jobs:
           command: *defaults_Dependencies
       - run:
           name: Access npm folder as root
-          command: cd $(npm root -g)/npm
+          command: cd transaction_simulator &&  cd $(npm root -g)/npm
       - run:
           name: Update NPM install
-          command: npm ci
+          command: cd transaction_simulator && npm ci
       - run:
           name: Delete build dependencies
-          command: apk del build-dependencies
+          command: cd transaction_simulator &&  apk del build-dependencies
       - save_cache:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
