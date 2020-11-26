@@ -122,6 +122,7 @@ workflows:
                 - /.*/
       - scan-license:
           requires:
+            - setup
             - build
           filters:
             tags:
