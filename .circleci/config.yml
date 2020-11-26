@@ -61,7 +61,7 @@ jobs:
           name: Delete build dependencies
           command: cd transaction_simulator &&  apk del build-dependencies
       - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
+          key: dependency-cache-{{ checksum "transaction_simulator/package.json" }}
           paths:
             - node_modules
 
