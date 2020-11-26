@@ -40,6 +40,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: path
+          command: pwd
+      - run:
           name: find
           command: find . -name "package.json"
       - run:
